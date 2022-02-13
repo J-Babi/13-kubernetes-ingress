@@ -1,5 +1,5 @@
 
-# Landmark Technologies == Kubernetes Ingress
+# Kubernetes Ingress
 # What is the Ingress in kubernetes?
 
 The Ingress is a Kubernetes resource that lets you configure an HTTP load balancer for applications running on Kubernetes, represented by one or more [Services](https://kubernetes.io/docs/concepts/services-networking/service/). Such a load balancer is necessary to deliver those applications to clients outside of the Kubernetes cluster. It also provides SSL Termination and SSL Redirect for HTTPS.
@@ -195,11 +195,11 @@ metadata:
 spec:
   tls:
   - hosts:
-    - app.landmarkfintech.com
-    secretName: mylandmarktech-ingress-tls
+    - <DNS>
+    secretName: <ingress-tls>
   ingressClassName: nginx
   rules:
-  - host: app.landmarkfintech.com
+  - host: <DNS>
     http:
       paths:
       - backend:
@@ -214,7 +214,7 @@ spec:
   ingressClassName: nginx
   rules:
   - host: landmarkfintech.com
-    secretName: mylandmarktech-ingress-tls
+    secretName: <ingress-tls-cert>
     http:
       paths:
       # Default Path(/)
@@ -231,6 +231,4 @@ spec:
           servicePort: 80
 ```
 
-### Alternatively Deploy Ingress in kubernetes using Manifest Files
-https://github.com/LandmakTechnology/kubernestes-ingress
-```
+
